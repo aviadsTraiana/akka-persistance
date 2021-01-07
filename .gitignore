@@ -123,3 +123,4 @@ project/plugins/project/
 ### Scala ###
 
 # End of https://www.gitignore.io/api/sbt,java,scala,intellij
+/.idea/
