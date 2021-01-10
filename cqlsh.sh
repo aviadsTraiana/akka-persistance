@@ -8,3 +8,6 @@ echo "help [cqlsh command]       : Gives information about cqlsh commands"
 echo "quit                       : quit"
 echo "=================================================================="
 docker exec -it cassandra cqlsh
+
+#select * from akka.messages;
+#select * from akka_snapshot.snapshots;
