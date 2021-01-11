@@ -37,7 +37,7 @@ object DetachingModels extends App {
     val system = ActorSystem("DetachingModels", ConfigFactory.load().getConfig("detachingModels"))
     val couponManager = system.actorOf(Props[CouponManager], "couponManager")
 
-  for (i <- 1 to 10) {
+  for (i <- 20 to 30) {
     val coupon = Coupon(s"MEGA_COUPON_$i", 100)
     val user = User(s"$i", s"user_$i@rtjvm.com", s"John Doe $i")
 
@@ -85,6 +85,6 @@ class ModelAdapter extends EventAdapter {
     override def toJournal(event: Any): Any = event match {
         case event @ CouponApplied(code, user) =>
             println(s"Converting $event to DATA model")
-            WrittenCouponApplied(code, user.id, user.email)
+            WrittenCouponAppliedV2(code, user.id, user.email,user.name)
     }
 }
